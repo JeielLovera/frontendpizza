@@ -1,0 +1,37 @@
+<div>
+<button mat-button class="btnVerCarrito" (click)="Mostrar()">VER MI CARRITO</button>
+<button mat-button class="btnVerCarrito">COMPRAR</button>
+
+<table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="imagenP">
+          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-cell *matCellDef="let row">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF2tN7hLs908GQ0EygSrj5tCPNT0dZBuwZX0fs-fV8txWI_dW-LQ">
+          </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="nproducto">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row" class="h1"> 
+            {{row.nproducto}}
+          </mat-cell>
+      </ng-container>
+ 
+  
+      <ng-container matColumnDef="mprecio">
+          <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+          <mat-cell *matCellDef="let row" class="precio" >${{row.mprecio}}.00</mat-cell>
+      </ng-container>   
+  
+      <!---<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+      <mat-row *matRowDef="let row; columns: displayedColumns;" class="matrow">
+  
+      </mat-row>
+      
+  </table>
+</div>
+
+<div *ngIf="valid">
+   <app-producto (listaoutput)="llenarCarrito($event)"></app-producto>
+   
+</div>
