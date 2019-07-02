@@ -1,0 +1,50 @@
+<div>
+    
+    <div class="divrd">
+        <mat-radio-group aria-label="Select an option" class="radiogrp">
+            <mat-radio-button value="1" (click)="filtarTipo(6)" class="radiobtn">Mediana</mat-radio-button>
+            <mat-radio-button value="2" (click)="filtarTipo(5)" class="radiobtn">Grande</mat-radio-button>
+            <mat-radio-button value="3" (click)="filtarTipo(4)" class="radiobtn">Familiar</mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+
+<table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="imagenP">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF2tN7hLs908GQ0EygSrj5tCPNT0dZBuwZX0fs-fV8txWI_dW-LQ">
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="nproducto">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let row" class="h1"> 
+          {{row.nproducto}}
+        </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tdescripcion">
+      <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.tdescripcion}} </mat-cell>
+    </ng-container>   
+
+    <ng-container matColumnDef="mprecio">
+        <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+        <mat-cell *matCellDef="let row" class="precio" >${{row.mprecio}}.00</mat-cell>
+    </ng-container>   
+
+    <ng-container matColumnDef="btnOrdenar">
+            <mat-header-cell *matHeaderCellDef mat-sort-header></mat-header-cell>
+            <mat-cell *matCellDef="let row">
+                    <button mat-button class="btnOrdenar" (click)="Ordenar(row)">ORDENAR</button>
+            </mat-cell>
+        </ng-container>   
+    
+    <!---<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>-->
+    <mat-row *matRowDef="let row; columns: displayedColumns;" class="matrow">
+
+    </mat-row>
+    
+</table>
+</div>

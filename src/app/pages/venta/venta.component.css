@@ -1,0 +1,9 @@
+.example-container{
+    margin-left: 100px;
+}
+
+.card{
+    background-color:rgba(24, 23, 23, 0.8); 
+    margin-left: 200px;
+    margin-right:200px;
+}
